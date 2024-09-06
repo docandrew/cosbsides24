@@ -200,9 +200,35 @@ Demo
 
 ---
 
+## What's the Catch?
+
+- Writing specifications is difficult
+
+- Writing code that meets the specifications is difficult
+
+- Making the solver happy is difficult
+
+- SMT Solving is NP-Complete...
+
+- ...so solving is difficult (for your computer)
+
+- Tools are getting better, but it's still a lot of work
+
+---
+
 ## Conclusions
 
 - Strong typing & formal verification can prevent bugs/CVEs
+
+- Am I suggesting you rewrite your entire codebase in SPARK?
+
+---
+
+## YES! *
+
+---
+
+## Example
 
 - Base64 decoding CVE:
 - https://exim.org/static/doc/security/CVE-2018-6789.txt
