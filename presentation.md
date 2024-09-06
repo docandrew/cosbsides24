@@ -78,7 +78,7 @@ Lots more possibilities are out there...
 
 ---
 
-## Some programming languages spell this out very deliberately
+## Some languages spell this out ($\rightarrow$)
 
 - Haskell
 
@@ -89,6 +89,14 @@ $ docker run -it --rm haskell:latest
 ```haskell
 ghci> let add3 x = x + 3
 ghci> :info add3
+```
+
+- Rust
+
+```rust
+fn five() -> i32 {
+    5
+}
 ```
 
 ---
@@ -109,7 +117,7 @@ int main() {
     enum days today;
     today = 34;
 
-    return 0;
+    return today;
 }
 ```
 
@@ -192,7 +200,39 @@ Demo
 
 ---
 
-# References
+## Conclusions
+
+- Strong typing & formal verification can prevent bugs/CVEs
+
+- Base64 decoding CVE:
+- https://exim.org/static/doc/security/CVE-2018-6789.txt
+- https://devco.re/blog/2018/03/06/exim-off-by-one-RCE-exploiting-CVE-2018-6789-en/
+
+---
+
+## References
+
 - Why3 https://www.why3.org/
+- Software Foundations https://softwarefoundations.cis.upenn.edu/
+
+---
+
+## Symbols
+
+$\lambda$ "lambda" (anonymous function definition)
+$\vdash$ "proves," "yields"
+$\rightarrow$ "implies"
+
+---
+
+## More about $\lambda$-calculus
+
+Earlier we showed how you can build up a mathematical
+framework from basic symbol manipulation like unary numbers.
+
+$\lambda$-calculus is a similar idea, but using functions. Using basic function definitions and applications, you can build up a mathematical framework that's Turing complete.
+
+We can define basic numbers, logical operations, and
+arithmetic operations using $\lambda$-calculus. Since it's Turing-complete, you can compute anything!
 
 ---

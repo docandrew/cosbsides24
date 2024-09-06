@@ -5,5 +5,5 @@ int main() {
     enum days today;
     today = 34;
 
-    return 0;
+    return today;
 }
