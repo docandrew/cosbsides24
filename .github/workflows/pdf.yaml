@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Render presentation
         uses: docker://marpteam/marp-cli:v1.7.0
@@ -19,3 +19,10 @@ jobs:
           args: presentation.md -o build/presentation.pdf
         env:
           MARP_USER: root:root
+
+      # Upload PDF to releases
+      - name: Upload PDF file
+        uses: actions/upload-artifact@v4
+        with:
+          name: PDF
+          path: 'build/presentation.pdf'
