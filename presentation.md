@@ -1,0 +1,198 @@
+---
+marp: true
+theme: gaia
+class: invert
+paginate: true
+---
+
+## Colorado Springs B-Sides '24
+
+Preventing Bugs w/ Strong Typing and Formal Methods
+
+https://github.com/docandrew/cosbsides24
+
+---
+
+## About me
+
+- Not a Computer Science PhD
+- Not a Mathematician
+- This is an _introduction_ to the topic of type theory and formal methods
+
+---
+
+## Types!
+
+built-ins:
+
+`bool`, `int`, `string`, `float`, `double`, `char`, `void`, `uint_32`
+
+complex:
+
+`struct`, `enum`, `union`, `class`
+
+user-defined:
+
+`zarfPackage`, `abstractFactoryGeneratorVisitor`
+
+---
+
+# But...
+
+Lots more possibilities are out there...
+
+**Let's go down the rabbit hole!**
+
+---
+
+## Type Theory
+
+- Based around set theory
+- i.e. the set of integers, the set of strings, etc.
+- $\lambda$-calculus, typing system says a function f has type A -> B, can be applied f x only if x has type A.
+- In other words, if the function expects an integer, you can't give it a string.
+- `int f(int x)` is a function that takes an integer and returns an integer.
+- If x is not in the _set_ of integers, type system will reject it.
+
+---
+
+## Type Theory
+
+- Curry-Howard Isomorphism*: There's a correspondence between _types_ in programming languages and _propositions_ in logic.
+
+\* or correspondence
+
+---
+
+## Fancy Types
+
+- Enums = "Sum type"
+    This variable can be a "Monday" _or_ a "Tuesday" _or_ a "Wednesday"
+
+- Structs = "Product type"
+    This variable is a "Name" _and_ a "Address"
+
+- Sum types analogous to logical disjunction (OR, $\lor$)
+- Product types analogous to logical conjunction (AND, $\land$)
+- Functions analogous to logical implication (if X, then Y, $\rightarrow$)
+
+---
+
+## Some programming languages spell this out very deliberately
+
+- Haskell
+
+```bash
+$ docker run -it --rm haskell:latest
+```
+
+```haskell
+ghci> let add3 x = x + 3
+ghci> :info add3
+```
+
+---
+
+## Why should we care?
+
+- We have tools to verify formal logic, so if we can make our code look like formal logic, we can _verify_ our code.
+
+---
+
+## Weak typing
+
+```c
+// enum for the days of the week
+enum days {SUN, MON, TUE, WED, THU, FRI, SAT};
+
+int main() {
+    enum days today;
+    today = 34;
+
+    return 0;
+}
+```
+
+^^^ totally legal
+
+---
+
+## Can we go beyond type-safety?
+
+- _Prove_ absence of undefined behavior
+- _Prove_ absence of unsafe behavior
+- _Prove_ **functional correctness** at compile-time?
+
+---
+
+## Formal Methods
+
+- Goal: Mathematically prove that a program is correct.
+- Since programs $\simeq$ proofs, this is equivalent to proving some kind of theorem.
+- Weakly-typed programming languages may give us _some_ guarantees, but not enough to prove correctness.
+- Stronger type systems can give us more guarantees beyond type-safety, such as memory-safety (Rust)
+- We can use computer-assisted theorem proving to prove _correctness_ (meeting a specification).
+
+---
+
+## Formal Methods
+
+- Spectrum of tools from very "mathy" to very practical
+
+- Proof Assistants: Coq, HOL4, F*, Isabelle
+- Model Checkers: TLA+
+- Functional PLs with strong typing: Haskell, Standard ML, OCaml
+  (and anything else with a $\lambda$ in the logo typically)
+- PLs with dependent types/theorem proving: Idris, Agda, ATS, Lean
+- Verifiable Programming Languages: Frama-C, SPARK
+
+---
+
+## Coq Proof Assistant
+
+Demo
+
+---
+
+## What if we could take programming languages and make them more like formal logic?
+
+---
+
+## Lean Programming Language
+
+Demo
+
+---
+
+## What if we could take a normal programming language but add a formal verification layer on top of it?
+
+---
+
+## SPARK
+
+- Formally-verifiable subset of Ada
+- Used in Airbus avionics and flight control
+- Air traffic control systems, Rail systems
+- Medical devices
+- Nvidia is using it now
+
+---
+
+## How SPARK works:
+
+- A program takes SPARK and generates Why3 "verification conditions" or VCs
+- VCs are generated in "why3ml" language that can be checked by a theorem prover (https://www.why3.org/)
+- Why3 translates the VCs into a logical formula (SMT)
+- SMT solvers can then check the formula for _satisfiability_
+<!-- SMT Solving is NP-Complete, very compute intensive -->
+
+---
+
+## SPARK Demo
+
+---
+
+# References
+- Why3 https://www.why3.org/
+
+---

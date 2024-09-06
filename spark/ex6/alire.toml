@@ -1,0 +1,15 @@
+name = "ex6"
+description = ""
+version = "0.1.0-dev"
+
+authors = ["Your Name"]
+maintainers = ["Your Name <example@example.com>"]
+maintainers-logins = ["github-username"]
+licenses = "GPL-3.0-or-later"
+website = ""
+tags = []
+
+executables = ["ex6"]
+
+[[depends-on]]
+gnatprove = "^13.2.1"
