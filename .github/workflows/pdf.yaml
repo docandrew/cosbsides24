@@ -1,0 +1,21 @@
+name: Render Presentation
+
+on:
+  push:
+    branches:
+       - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Render presentation
+        uses: docker://marpteam/marp-cli:v1.7.0
+        with:
+          args: presentation.md -o build/presentation.pdf
+        env:
+          MARP_USER: root:root
