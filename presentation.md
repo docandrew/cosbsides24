@@ -202,6 +202,43 @@ Demo
 
 ---
 
+## Satisfiability / 3SAT
+
+Given a series of clauses:
+
+C1: A $\lor$ B $\lor$ C
+C2: (A $\lor$ $\lnot$B) $\land$ D
+C3: (B $\land$ C) $\lor$ $\lnot$D
+
+Can we find values for A, B, C and D such that these are true?
+
+(Yes: A = true, B = true, C = true, D = true)
+
+Lots of difficult (NP) problems can be reduced to 3SAT.
+
+---
+
+## Satisfiability _modulo_ theories (SMT)
+
+- Generalization of 3SAT for integers, real numbers, math.
+
+- SMT _Solvers_: Z3, CVC4, AltErgo
+
+- Standardized SMTLib input format
+
+```
+; Integer arithmetic
+(set-logic QF_LIA)
+(declare-const x Int)
+(declare-const y Int)
+(assert (= (- x y) (+ x (- y) 1)))
+(check-sat)
+; unsat
+(exit)
+```
+
+---
+
 ## SPARK Demo
 
 ---
