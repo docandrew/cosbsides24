@@ -17,7 +17,13 @@ https://github.com/docandrew/cosbsides24
 
 - Not a Computer Science PhD
 - Not a Mathematician
+
+---
+
+## This talk
+
 - This is an _introduction_ to the topic of type theory and formal methods
+- The goal: awareness of tools that _might help_ you write better software
 
 ---
 
@@ -204,7 +210,7 @@ Demo
 
 - Writing specifications is difficult
 
-- Writing code that meets the specifications is difficult
+- Writing code that meets the specifications is difficult 
 
 - Making the solver happy is difficult
 
@@ -224,7 +230,19 @@ Demo
 
 ---
 
-## YES! *
+## YES!
+
+---
+
+## But seriously
+
+- There's a time and a place
+- Be aware of the tradeoffs
+- If given a choice, pick languages/tools with more rigid underpinnings
+  * Strict typing
+  * Robust type systems 
+  * Memory-safety
+  * Thread-safety
 
 ---
 
